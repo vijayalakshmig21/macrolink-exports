@@ -223,7 +223,7 @@
         }
 
         .export-map-container {
-            background: linear-gradient(135deg, #F6F7F6 0%, #EEF0EF 100%);
+            background: linear-gradient(135deg, #F6FAF7 0%, #EEF5EF 100%);
             border-radius: 12px;
             position: relative;
             overflow: hidden;
@@ -1558,6 +1558,46 @@ select:focus-visible {
 }
 </style>
 
+
+<style id="final-functional-fixes">
+/* Final responsive and interaction fixes */
+.logo-mark { display:block; background:transparent !important; mix-blend-mode:multiply; object-fit:contain; }
+.export-map-visual { position:relative; width:100%; height:100%; min-height:190px; }
+.export-map-base { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:.48; background:transparent !important; mix-blend-mode:multiply; }
+.map-pin { position:absolute; width:12px; height:12px; border:2px solid #fff; border-radius:50%; background:#111827; box-shadow:0 0 0 4px rgba(17,24,39,.13); transform:translate(-50%,-50%); z-index:2; }
+.map-pin-india { left:66%; top:53%; width:auto; height:auto; border:0; border-radius:0; background:transparent; box-shadow:none; display:flex; flex-direction:column; align-items:center; gap:4px; }
+.map-pin-india i { display:block; width:15px; height:15px; border:2px solid #fff; border-radius:50%; background:#24523A; box-shadow:0 0 0 5px rgba(36,82,58,.2); }
+.map-pin-india b { font:700 10px Inter,sans-serif; color:#173126; letter-spacing:.06em; }
+.map-pin-europe { left:51%; top:34%; } .map-pin-middle-east { left:57%; top:45%; }
+.map-pin-africa { left:52%; top:58%; } .map-pin-north-america { left:24%; top:38%; } .map-pin-east-asia { left:75%; top:42%; }
+.export-map-container { min-height:260px; }
+.export-map-container svg { max-width:100%; }
+.tab-btn { cursor:pointer; min-height:44px; }
+.tab-btn:focus-visible { outline:3px solid rgba(36,82,58,.3); outline-offset:3px; }
+.export-tab-content[aria-hidden="true"] { display:none !important; }
+@media (max-width:767px) {
+  .export-map-container { height:auto !important; min-height:250px; padding:14px !important; }
+  .export-map-visual { height:190px; min-height:190px; }
+  .export-map-container .flex.flex-wrap { margin-top:10px; }
+  .tab-btn { flex:1 1 calc(50% - 8px); }
+  .contact-hero-overlay { background-position:center; }
+  #contact-view h1 { overflow-wrap:anywhere; font-size:clamp(2.25rem, 9vw, 4rem) !important; }
+  #contact-view a[href^="mailto:"], #contact-view a[href^="tel:"] { overflow-wrap:anywhere; }
+}
+</style>
+
+
+<style id="working-product-filters">
+.product-filter-buttons { scrollbar-width: none; }
+.product-filter-buttons::-webkit-scrollbar { display:none; }
+.product-filter-btn { flex: 0 0 auto; min-height:44px; padding:10px clamp(14px,2vw,26px); border:1px solid #DCE8DF; border-radius:999px; background:#fff; color:#405148; font:600 12px/1.2 Inter,sans-serif; letter-spacing:.035em; white-space:nowrap; cursor:pointer; transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease; }
+.product-filter-btn:hover { border-color:#6A9775; background:#F4F8F4; color:#24523A; }
+.product-filter-btn.is-active { background:#24523A; color:#fff; border-color:#24523A; box-shadow:0 5px 14px rgba(36,82,58,.16); }
+.product-filter-btn:focus-visible { outline:3px solid rgba(63,118,82,.35); outline-offset:2px; }
+[data-product-card][hidden] { display:none !important; }
+@media(max-width:767px) { #product-category-filter { top:70px; } .product-filter-buttons { padding-bottom:3px; } #product-filter-count { align-self:flex-start; } }
+</style>
+
 </head>
 
 <body class="pt-[70px] md:pt-[116px]">
@@ -1593,7 +1633,7 @@ select:focus-visible {
             <div class="max-w-container h-full flex items-center justify-between py-1 md:py-3">
                 <!-- Logo Zone -->
                 <div class="flex items-center gap-3 md:gap-4">
-                    <img src="assets/images/logo.png" alt="MacroLink Exports and Imports Logo" class="h-[70px] md:h-20 w-auto">
+                    <img src="assets/images/logo.png" alt="MacroLink Exports and Imports Logo" class="logo-mark h-[64px] md:h-20 w-auto object-contain" style="background:transparent;mix-blend-mode:multiply" onerror="this.style.display='none'">
                     <div class="hidden sm:flex flex-col">
                         <span
                             class="font-poppins font-bold text-lg md:text-2xl tracking-[0.04em] text-[#4F805F] uppercase">MACRO LINK
@@ -1999,7 +2039,7 @@ At MacroLink, our vision goes beyond transactions — we aim to create meaningfu
                     <div
                         class="product-card bg-white border border-[#E4E7E3] rounded-[12px] overflow-hidden flex flex-col h-[380px]">
                         <div class="h-[55%] relative overflow-hidden bg-[#F3FBF4] flex items-center justify-center p-5">
-                            <img src="assets/images/veg.png" alt="Mixed Fruits" loading="lazy"
+                            <img src="assets/images/watermelon.jpg" alt="Mixed Fruits" loading="lazy"
                                 decoding="async" class="w-full h-full object-cover rounded-lg">
                         </div>
                         <div class="h-[45%] p-6 flex flex-col">
@@ -2016,7 +2056,7 @@ At MacroLink, our vision goes beyond transactions — we aim to create meaningfu
                     <div
                         class="product-card bg-white border border-[#E4E7E3] rounded-[12px] overflow-hidden flex flex-col h-[380px]">
                         <div class="h-[55%] relative overflow-hidden bg-[#F3FBF4] flex items-center justify-center p-5">
-                            <img src="assets/images/veg.png" alt="Mixed Vegetables" loading="lazy"
+                            <img src="assets/images/veg-packing.png" alt="Mixed Vegetables" loading="lazy"
                                 decoding="async" class="w-full h-full object-cover rounded-lg">
                         </div>
                         <div class="h-[45%] p-6 flex flex-col">
@@ -3029,15 +3069,15 @@ At MacroLink, our vision goes beyond transactions — we aim to create meaningfu
         </section>
 
         <!-- CATEGORY FILTER BAR (Sticky) -->
-        <div class="sticky top-[72px] md:top-[116px] z-40 bg-white border-b border-[#E4E7E3] h-auto py-2 md:h-[72px]">
-            <div class="max-w-container h-full flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-2 md:pb-0">
-                    <button class="px-5 md:px-7 py-2.5 md:py-3.5 bg-[#24523A] text-white font-poppins font-medium text-[12px] md:text-[13px] rounded-[4px] shadow-sm whitespace-nowrap">ALL PRODUCE</button>
-                    <button class="px-5 md:px-7 py-2.5 md:py-3.5 bg-transparent hover:bg-[#F4F8F4] text-[#737D87] font-poppins font-medium text-[12px] md:text-[13px] rounded-[4px] transition-all whitespace-nowrap">MIXED FRUITS</button>
-                    <button class="px-5 md:px-7 py-2.5 md:py-3.5 bg-transparent hover:bg-[#F4F8F4] text-[#737D87] font-poppins font-medium text-[12px] md:text-[13px] rounded-[4px] transition-all whitespace-nowrap">MIXED VEGETABLES</button>
-                    <button class="px-5 md:px-7 py-2.5 md:py-3.5 bg-transparent hover:bg-[#F4F8F4] text-[#737D87] font-poppins font-medium text-[12px] md:text-[13px] rounded-[4px] transition-all whitespace-nowrap">EGGS</button>
+        <div id="product-category-filter" class="sticky top-[70px] md:top-[116px] z-40 bg-white/95 backdrop-blur border-b border-[#DCE8DF] h-auto py-3 md:min-h-[72px]">
+            <div class="max-w-container h-full flex flex-col md:flex-row items-center justify-between gap-3">
+                <div class="product-filter-buttons flex items-center gap-2 overflow-x-auto w-full no-scrollbar pb-1 md:pb-0" role="group" aria-label="Filter products by category">
+                    <button type="button" data-product-filter="all" aria-pressed="true" class="product-filter-btn is-active">MY PRODUCTS</button>
+                    <button type="button" data-product-filter="fruits" aria-pressed="false" class="product-filter-btn">MIXED FRUITS</button>
+                    <button type="button" data-product-filter="vegetables" aria-pressed="false" class="product-filter-btn">MIXED VEGETABLES</button>
+                    <button type="button" data-product-filter="eggs" aria-pressed="false" class="product-filter-btn">EGGS</button>
                 </div>
-                <div class="hidden md:block text-[14px] text-[#888888] font-inter">Showing 4 categories</div>
+                <div id="product-filter-count" class="text-[13px] text-[#718078] font-inter whitespace-nowrap" aria-live="polite">Showing all products</div>
             </div>
         </div>
 
@@ -3292,6 +3332,26 @@ At MacroLink, our vision goes beyond transactions — we aim to create meaningfu
                                     class="h-[40px] px-6 bg-[#4F805F] hover:bg-[#3F7652] text-white font-poppins font-semibold text-[12px] rounded transition-colors uppercase">GET
                                     QUOTE</button>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 7: Eggs -->
+                    <div data-product-card data-product-category="eggs" class="bg-white border border-[#DCE8DF] rounded-[16px] overflow-hidden hover:border-[#24523A] transition-all duration-300 flex flex-col shadow-sm">
+                        <div class="h-[220px] bg-[#F4F8F4]">
+                            <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=85" alt="Fresh eggs for wholesale and export" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-7 flex flex-col flex-grow">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-poppins font-semibold text-[20px] text-[#20252B]">Eggs</h3>
+                                <span class="bg-[#EEF5EF] px-2.5 py-1 rounded text-[#315F45] text-[11px] font-medium uppercase tracking-wider">Export Grade</span>
+                            </div>
+                            <p class="text-[14px] text-[#737D87] mb-5 leading-relaxed">Quality eggs carefully handled and packed for wholesale buyers and export requirements.</p>
+                            <div class="space-y-0 text-[12px] border-t border-[#F0F0F0]">
+                                <div class="flex justify-between py-2 border-b border-[#F0F0F0]"><span class="text-[#888888]">Supply</span><span class="text-[#3F474F] font-medium">Wholesale orders</span></div>
+                                <div class="flex justify-between py-2 border-b border-[#F0F0F0]"><span class="text-[#888888]">Handling</span><span class="text-[#3F474F] font-medium">Careful packing</span></div>
+                                <div class="flex justify-between py-2"><span class="text-[#888888]">Origin</span><span class="text-[#3F474F] font-medium">India</span></div>
+                            </div>
+                            <div class="mt-6 flex items-center justify-end"><button type="button" class="h-[42px] px-6 bg-[#3F7652] hover:bg-[#24523A] text-white font-poppins font-semibold text-[12px] rounded-lg transition-colors uppercase" onclick="navigateTo('contact')">GET QUOTE</button></div>
                         </div>
                     </div>
                 </div>
@@ -3711,48 +3771,16 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
                 </div>
                 <!-- World Map -->
                 <div class="export-map-container h-[250px] md:h-[400px] p-4 md:p-8 mb-10">
-                    <svg viewBox="0 0 1000 400" class="w-full h-full">
-                        <!-- Simplified World Map -->
-                        <g fill="#E2E5E7" stroke="#ccc" stroke-width="0.5">
-                            <!-- North America -->
-                            <path d="M150 80 L250 60 L280 100 L260 160 L200 180 L150 160 L120 120 Z" />
-                            <!-- South America -->
-                            <path d="M200 200 L250 190 L270 250 L250 320 L200 340 L180 280 L190 220 Z" />
-                            <!-- Europe -->
-                            <path d="M450 60 L520 50 L540 90 L520 130 L470 140 L440 100 Z" />
-                            <!-- Asia (excluding India) -->
-                            <path d="M600 50 L750 40 L800 80 L820 150 L750 180 L650 160 L600 120 Z" />
-                            <!-- Southeast Asia -->
-                            <path d="M720 180 L780 170 L800 220 L770 260 L730 250 L710 210 Z" />
-                            <!-- Australia -->
-                            <path d="M780 280 L850 270 L880 310 L850 350 L790 340 L770 310 Z" />
-                        </g>
-                        <!-- India (Origin) - Highlighted -->
-                        <path d="M620 140 L660 130 L680 170 L670 210 L640 230 L610 200 L600 160 Z" fill="#4F805F"
-                            stroke="#b8922a" stroke-width="1" />
-
-                        <!-- Export Destination Highlights - Hidden on mobile for cleaner view -->
-                        <g class="hidden md:block">
-                            <circle cx="560" cy="160" r="15" fill="#4F805F" opacity="0.7" />
-                            <circle cx="480" cy="220" r="18" fill="#4F805F" opacity="0.7" />
-                            <circle cx="750" cy="210" r="15" fill="#4F805F" opacity="0.7" />
-                            <circle cx="480" cy="90" r="15" fill="#4F805F" opacity="0.7" />
-                            <circle cx="200" cy="140" r="15" fill="#4F805F" opacity="0.7" />
-                            <!-- Export Flow Lines -->
-                            <path d="M640 180 Q600 140 560 160" stroke="#4F805F" stroke-width="2" fill="none"
-                                class="export-flow-line" />
-                            <path d="M630 200 Q550 200 480 220" stroke="#4F805F" stroke-width="2" fill="none"
-                                class="export-flow-line" />
-                            <path d="M670 170 Q710 180 750 210" stroke="#4F805F" stroke-width="2" fill="none"
-                                class="export-flow-line" />
-                            <path d="M620 150 Q550 100 480 90" stroke="#4F805F" stroke-width="2" fill="none"
-                                class="export-flow-line" />
-                            <path d="M610 180 Q400 160 200 140" stroke="#4F805F" stroke-width="2" fill="none"
-                                class="export-flow-line" />
-                        </g>
-                        <text x="640" y="260" font-size="12" fill="#4F805F" font-weight="600">INDIA</text>
-                    </svg>
-                    <!-- Legend -->
+                    <div class="export-map-visual" role="img" aria-label="World map showing India as the export origin and export markets across North America, Europe, the Middle East, Africa and Asia">
+                    <img class="export-map-base" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg" alt="World map" loading="lazy" decoding="async">
+                    <span class="map-pin map-pin-india"><i></i><b>INDIA</b></span>
+                    <span class="map-pin map-pin-europe" aria-label="Europe export market"></span>
+                    <span class="map-pin map-pin-middle-east" aria-label="Middle East export market"></span>
+                    <span class="map-pin map-pin-africa" aria-label="Africa export market"></span>
+                    <span class="map-pin map-pin-north-america" aria-label="North America export market"></span>
+                    <span class="map-pin map-pin-east-asia" aria-label="Asia export market"></span>
+                </div>
+                <!-- Legend -->
                     <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mt-4">
                         <div class="flex items-center gap-2">
                             <span class="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#4F805F]"></span>
@@ -4171,16 +4199,16 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
                 <div class="flex flex-wrap justify-center gap-3 mb-8 md:mb-10">
                     <button
                         class="tab-btn active px-4 md:px-6 py-2.5 md:py-3 rounded-lg border border-[#E2E5E7] font-poppins font-medium text-[13px] md:text-sm transition-all"
-                        onclick="switchExportTab(this, 'watermelon')">Watermelon</button>
+                        onclick="switchExportTab(this, 'watermelon')" role="tab" aria-selected="true" type="button">Watermelon</button>
                     <button
                         class="tab-btn px-4 md:px-6 py-2.5 md:py-3 rounded-lg border border-[#E2E5E7] text-[#737D87] font-poppins font-medium text-[13px] md:text-sm transition-all hover:border-[#24523A]"
-                        onclick="switchExportTab(this, 'pineapple')">Pineapple</button>
+                        onclick="switchExportTab(this, 'pineapple')" role="tab" aria-selected="false" type="button">Pineapple</button>
                     <button
                         class="tab-btn px-4 md:px-6 py-2.5 md:py-3 rounded-lg border border-[#E2E5E7] text-[#737D87] font-poppins font-medium text-[13px] md:text-sm transition-all hover:border-[#24523A]"
-                        onclick="switchExportTab(this, 'pomegranate')">Pomegranate</button>
+                        onclick="switchExportTab(this, 'pomegranate')" role="tab" aria-selected="false" type="button">Pomegranate</button>
                     <button
                         class="tab-btn px-4 md:px-6 py-2.5 md:py-3 rounded-lg border border-[#E2E5E7] text-[#737D87] font-poppins font-medium text-[13px] md:text-sm transition-all hover:border-[#24523A]"
-                        onclick="switchExportTab(this, 'vegetables')">Vegetables</button>
+                        onclick="switchExportTab(this, 'vegetables')" role="tab" aria-selected="false" type="button">Vegetables</button>
                 </div>
                 <!-- Tab Contents -->
                 <div id="tab-watermelon"
@@ -5027,7 +5055,7 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
         if (!overlay) { _origNavigateTo(page); return; }
         overlay.classList.remove('leaving');
         overlay.classList.add('entering');
-        overlay.style.pointerEvents = 'all';
+        overlay.style.pointerEvents = 'none';
         setTimeout(() => {
             _origNavigateTo(page);
             overlay.classList.remove('entering');
@@ -5135,26 +5163,26 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
         }
 
         function switchExportTab(btn, tabId) {
-            const tabBtns = btn.parentElement.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.export-tab-content');
+            if (!btn) return;
+            const tabGroup = btn.closest('section');
+            if (!tabGroup) return;
+            const tabBtns = tabGroup.querySelectorAll('.tab-btn');
+            const tabContents = tabGroup.querySelectorAll('.export-tab-content');
+            const selectedContent = tabGroup.querySelector('#tab-' + CSS.escape(tabId));
+            if (!selectedContent) return;
 
-            // Remove active classes
             tabBtns.forEach(b => {
-                b.classList.remove('active');
-                b.classList.add('text-[#737D87]');
+                const active = b === btn;
+                b.classList.toggle('active', active);
+                b.setAttribute('aria-selected', String(active));
+                b.setAttribute('type', 'button');
+                b.classList.toggle('text-[#737D87]', !active);
             });
-
-            // Add active class to clicked button
-            btn.classList.add('active');
-            btn.classList.remove('text-[#737D87]');
-
-            // Hide all tab contents
             tabContents.forEach(content => {
-                content.classList.add('hidden');
+                const active = content === selectedContent;
+                content.classList.toggle('hidden', !active);
+                content.setAttribute('aria-hidden', String(!active));
             });
-
-            // Show selected tab content
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
         }
 
         function toggleMobileMenu() {
@@ -5172,20 +5200,23 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
         }
 
         function toggleFaq(element) {
-            const item = element.parentElement;
-            const isActive = item.classList.contains('active');
-
-            // Close all other items
-            document.querySelectorAll('.faq-item').forEach(faq => {
+            const item = element && element.closest('.faq-item');
+            if (!item) return;
+            const wasActive = item.classList.contains('active');
+            // Keep accordions independent when there are multiple FAQ sections.
+            const accordion = item.closest('.faq-accordion') || item.parentElement;
+            accordion.querySelectorAll('.faq-item').forEach(faq => {
                 faq.classList.remove('active');
                 const icon = faq.querySelector('.toggle-icon');
-                if (icon) icon.classList.replace('fa-minus', 'fa-plus');
+                if (icon) { icon.classList.remove('fa-minus'); icon.classList.add('fa-plus'); }
+                const question = faq.querySelector('.faq-question');
+                if (question) question.setAttribute('aria-expanded', 'false');
             });
-
-            if (!isActive) {
+            if (!wasActive) {
                 item.classList.add('active');
                 const icon = item.querySelector('.toggle-icon');
-                if (icon) icon.classList.replace('fa-plus', 'fa-minus');
+                if (icon) { icon.classList.remove('fa-plus'); icon.classList.add('fa-minus'); }
+                element.setAttribute('aria-expanded', 'true');
             }
         }
 
@@ -5345,6 +5376,66 @@ Our produce is carefully sourced from trusted farms across India, ensuring the h
     } else {
         initSitewideButtons();
     }
+})();
+</script>
+
+
+<script id="working-product-filter-logic">
+(function () {
+  function initProductFilters() {
+    const filterBar = document.getElementById('product-category-filter');
+    const productsView = document.getElementById('products-view');
+    if (!filterBar || !productsView || filterBar.dataset.filterReady === 'true') return;
+
+    const buttons = Array.from(filterBar.querySelectorAll('[data-product-filter]'));
+    const grid = Array.from(productsView.querySelectorAll('.grid')).find(el => el.classList.contains('grid-cols-1') && el.classList.contains('md:grid-cols-2') && el.classList.contains('lg:grid-cols-3'));
+    if (!grid || !buttons.length) return;
+
+    const cards = Array.from(grid.children).filter(el => el.querySelector('h3'));
+    const fruitNames = ['watermelon', 'pomegranate', 'pineapple', 'coconut', 'mixed fruits'];
+    const vegetableNames = ['drumsticks', 'onions', 'green chilli', 'mixed vegetables'];
+
+    cards.forEach(card => {
+      const title = (card.querySelector('h3')?.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      let category = 'other';
+      if (title.includes('egg')) category = 'eggs';
+      else if (fruitNames.some(name => title.includes(name))) category = 'fruits';
+      else if (vegetableNames.some(name => title.includes(name))) category = 'vegetables';
+      card.dataset.productCard = '';
+      card.dataset.productCategory = category;
+    });
+
+    function applyFilter(category) {
+      let visible = 0;
+      cards.forEach(card => {
+        const matches = category === 'all' || card.dataset.productCategory === category;
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      buttons.forEach(button => {
+        const active = button.dataset.productFilter === category;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      const count = document.getElementById('product-filter-count');
+      if (count) {
+        const categoryLabel = buttons.find(button => button.dataset.productFilter === category)?.textContent.trim().toLowerCase();
+        count.textContent = category === 'all' ? `Showing ${visible} products` : `Showing ${visible} ${categoryLabel}`;
+      }
+      const heading = productsView.querySelector('section h2');
+      if (heading) heading.textContent = category === 'all' ? 'Our Fresh Produce Products' :
+        category === 'fruits' ? 'Fresh Fruit Products' :
+        category === 'vegetables' ? 'Fresh Vegetable Products' : 'Egg Products';
+    }
+
+    buttons.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.productFilter)));
+    filterBar.dataset.filterReady = 'true';
+    applyFilter('all');
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initProductFilters);
+  else initProductFilters();
+  window.addEventListener('load', initProductFilters);
 })();
 </script>
 
